@@ -6,17 +6,17 @@ import { useRef } from "react"
 
 export function Subpage({ id, title, subtitle, content, dark, contentRight, postUrl, imageUrl }) {
   return (
-    <div className={`w-full h-[100vh] px-24 py-16 flex flex-col ${ dark ? 'bg-stone-600' : 'bg-stone-200' }`}>
-      <div className={`${(dark) ? 'text-gray-200' : 'text-gray-600'} text-[40px] font-medium`}>{ title ?? '' }</div>
-      <div className={`my-auto flex ${ contentRight ? 'flex-row-reverse' : 'flex-row' } justify-between`}>
-        <div className='w-[45%] flex flex-col space-y-8'>
+    <div className={`w-full min-h-[100vh] portrait:max-lg:min-h-[50vh] portrait:max-md:min-h-[100vh] px-24 max-lg:px-16 max-md:px-8 py-16 max-lg:py-12 max-md:py-8 flex flex-col ${ dark ? 'bg-stone-600' : 'bg-stone-200' }`}>
+      <div className={`${(dark) ? 'text-gray-200' : 'text-gray-600'} text-[40px] max-lg:text-3xl max-md:text-2xl font-medium`}>{ title ?? '' }</div>
+      <div className={`my-auto flex ${ contentRight ? 'flex-row' : 'flex-row-reverse' } max-md:flex-col justify-between`}>
+        {
+          (imageUrl) ? <img src={imageUrl} className={`w-[45%] portrait:max-lg:w-[60%] portrait:max-md:w-full object-contain aspect-[4/3] rounded-lg`} /> : ''
+        }
+        <div className='w-[45%] max-lg:w-[50%] max-md:w-full flex flex-col space-y-8'>
           { subtitle ? <div className={`${(dark) ? 'text-gray-300' : 'text-gray-600'} text-[3rem] font-medium`}>{ subtitle }</div> : '' }
-          <div className={`mt-8 ${(dark) ? 'text-gray-300' : 'text-gray-600'}`}>{ content ?? '' }</div>
+          <div className={`mt-8 ${(dark) ? 'text-gray-300' : 'text-gray-600'} max-lg:text-sm`}>{ content ?? '' }</div>
           { (postUrl) ? <Link href={postUrl} className='px-8 py-3 w-fit bg-green-600 rounded-full text-gray-100 font-medium'>Selengkapnya</Link> : '' }
         </div>
-        {
-          (imageUrl) ? <img src={imageUrl} className={`w-[45%] object-contain aspect-[4/3] rounded-lg`} /> : ''
-        }
       </div>
     </div>
   )
@@ -35,20 +35,20 @@ export function SubpageCarousel({ id, title, items, dark }) {
   }
 
   return (
-    <div className={`w-full h-[100vh] px-8 py-16 ${ dark ? 'bg-stone-600' : 'bg-stone-200' }`}>
-      <div className={`${(dark) ? 'text-gray-200' : 'text-gray-600'} px-16 text-[40px] font-medium`}>{ title }</div>
-      <div className='flex flex-row space-x-4'>
-        { (items) ? <div onClick={() => slideClicked(true)} className='my-auto py-4 aspect-[1/1] w-16 bg-stone-300 text-gray-500 rounded-full text-center cursor-pointer select-none'><FontAwesomeIcon icon={faChevronLeft} /></div> : '' }
+    <div className={`w-full min-h-[100vh] portrait:max-lg:min-h-[50vh] portrait:max-md:min-h-[100vh] px-8 max-md:px-4 py-16 max-lg:py-12 max-md:py-8 ${ dark ? 'bg-stone-600' : 'bg-stone-200' }`}>
+      <div className={`${(dark) ? 'text-gray-200' : 'text-gray-600'} px-16 text-[40px] max-lg:text-3xl max-md:text-2xl font-medium`}>{ title }</div>
+      <div className='relative flex flex-row space-x-4'>
+        { (items) ? <div onClick={() => slideClicked(true)} className='absolute top-[50%] left-4 my-auto py-4 max-md:py-3 aspect-[1/1] w-16 h-16 max-md:w-12 max-md:h-12 bg-stone-500 bg-opacity-50 text-white text-opacity-100 rounded-full text-center cursor-pointer select-none'><FontAwesomeIcon icon={faChevronLeft} /></div> : '' }
         <div ref={containerRef} className='mt-8 w-full overflow-hidden'>
           <div className='w-fit flex flex-row space-x-16'>
             {
               (items) ? items.map((item, index2) => {
                 return (
-                  <div className={`${ dark ? 'bg-stone-100 shadow-gray-700' : 'bg-stone-100 shadow-gray-300 border-2 border-gray-300' } w-[85vw] py-8 px-16 flex flex-row space-x-16 rounded-2xl shadow-xl`}>
-                    <img src={ item.fields.coverImage?.fields.file.url ?? '#' } className={` w-[45%] object-contain aspect-[4/3] rounded-lg`} />
-                    <div className={`${ dark ? 'text-gray-600' : 'text-gray-600' } flex-1 my-8 flex flex-col space-y-8`}>
-                      <div className='font-medium text-3xl'>{ item.fields.title }</div>
-                      <div className='mt-4'>{ item.fields.summary || item.fields.content }</div>
+                  <div className={`${ dark ? 'bg-stone-100 shadow-gray-700' : 'bg-stone-100 shadow-gray-300 border-2 border-gray-300' } w-[85vw] py-8 px-16 max-lg:px-8 flex flex-row portrait:max-lg:flex-col space-x-16 portrait:max-lg:space-x-0 rounded-2xl shadow-xl`}>
+                    <img src={ item.fields.coverImage?.fields.file.url ?? '#' } className={`w-[45%] portrait:max-lg:w-[60%] portrait:max-lg:mx-auto portrait:max-md:w-full object-contain aspect-[4/3] rounded-lg`} />
+                    <div className={`${ dark ? 'text-gray-600' : 'text-gray-600' } flex-1 mt-8 max-lg:mt-4 flex flex-col space-y-8 max-lg:space-y-4`}>
+                      <div className='text-gray-600 font-semibold text-3xl max-lg:text-2xl max-md:text-xl'>{ item.fields.title }</div>
+                      <div className='mt-4 max-lg:text-sm'>{ item.fields.summary || item.fields.content }</div>
                       { (item.sys.contentType.sys.id == 'post') ? <Link href={ '/post/' + item.sys.id } className='px-8 py-3 w-fit bg-green-600 rounded-full text-gray-100 font-medium'>Selengkapnya</Link> : '' }
                     </div>
                   </div>
@@ -57,8 +57,17 @@ export function SubpageCarousel({ id, title, items, dark }) {
             }
           </div>
         </div>
-        { (items) ? <div onClick={() => slideClicked(false)} className='my-auto py-4 aspect-[1/1] w-16 bg-stone-300 text-gray-500 rounded-full text-center cursor-pointer select-none'><FontAwesomeIcon icon={faChevronRight} /></div> : '' }
+        { (items) ? <div onClick={() => slideClicked(false)} className='absolute top-[50%] right-4 my-auto py-4 max-md:py-3 aspect-[1/1] w-16 h-16 max-md:w-12 max-md:h-12 bg-stone-500 bg-opacity-50 text-white text-opacity-100 rounded-full text-center cursor-pointer select-none'><FontAwesomeIcon icon={faChevronRight} /></div> : '' }
       </div>
+    </div>
+  )
+}
+
+export function LoadingPage() {
+  
+  return (
+    <div>
+      
     </div>
   )
 }
