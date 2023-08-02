@@ -5,13 +5,6 @@ import { Subpage, SubpageCarousel } from "../components/PageComponent"
 
 export default function Kontak({ data }) {
 
-  // useEffect(() => {
-  //   fetch('/api/fetch/' + process.env.KONTAK_ENTRY_ID, { method: 'GET', next: { revalidate: process.env.REVALIDATE_SECS } }).then(async (res) => {
-  //     const resData = await res.json()
-  //     setData(resData)
-  //   })
-  // }, [])
-
   return (
     <div className='w-full flex flex-col'>
       {

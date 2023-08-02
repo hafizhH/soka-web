@@ -734,6 +734,10 @@ video {
   min-height: 100vh;
 }
 
+.min-h-\[85vh\] {
+  min-height: 85vh;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -1173,6 +1177,10 @@ video {
   padding-top: 2rem;
 }
 
+.pr-32 {
+  padding-right: 8rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1398,6 +1406,14 @@ video {
     height: fit-content;
   }
 
+  .max-lg\:min-h-\[50vh\] {
+    min-height: 50vh;
+  }
+
+  .max-lg\:min-h-\[60vh\] {
+    min-height: 60vh;
+  }
+
   .max-lg\:w-48 {
     width: 12rem;
   }
@@ -1460,6 +1476,12 @@ video {
     --tw-space-y-reverse: 0;
     margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  }
+
+  .max-lg\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .max-lg\:space-y-reverse > :not([hidden]) ~ :not([hidden]) {
@@ -1539,8 +1561,17 @@ video {
 }
 
 @media not all and (min-width: 768px) {
+  .max-md\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .max-md\:ml-0 {
     margin-left: 0px;
+  }
+
+  .max-md\:mt-4 {
+    margin-top: 1rem;
   }
 
   .max-md\:block {
@@ -1567,6 +1598,18 @@ video {
     height: 80vh;
   }
 
+  .max-md\:h-8 {
+    height: 2rem;
+  }
+
+  .max-md\:min-h-\[80vh\] {
+    min-height: 80vh;
+  }
+
+  .max-md\:min-h-\[65vh\] {
+    min-height: 65vh;
+  }
+
   .max-md\:w-12 {
     width: 3rem;
   }
@@ -1583,14 +1626,32 @@ video {
     width: 100%;
   }
 
+  .max-md\:w-8 {
+    width: 2rem;
+  }
+
   .max-md\:flex-col {
     flex-direction: column;
+  }
+
+  .max-md\:justify-between {
+    justify-content: space-between;
+  }
+
+  .max-md\:justify-around {
+    justify-content: space-around;
   }
 
   .max-md\:space-y-12 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;
     margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(3rem * var(--tw-space-y-reverse));
+  }
+
+  .max-md\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2rem * var(--tw-space-y-reverse));
   }
 
   .max-md\:space-y-reverse > :not([hidden]) ~ :not([hidden]) {
@@ -1615,6 +1676,21 @@ video {
   .max-md\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .max-md\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .max-md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .max-md\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   .max-md\:pt-12 {
@@ -1652,6 +1728,15 @@ video {
   .max-md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .max-md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .max-md\:font-medium {
+    font-weight: 500;
   }
 }
 

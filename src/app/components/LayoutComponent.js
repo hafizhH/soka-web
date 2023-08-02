@@ -4,6 +4,9 @@ import { faBars, faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { config as faConfig } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+faConfig.autoAddCss = false;
 
 export function Navbar() {
   const [isShowing, setIsShowing] = useState(false)

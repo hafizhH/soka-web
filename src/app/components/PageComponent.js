@@ -2,7 +2,9 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
 import { useRef } from "react"
-
+import { config as faConfig } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+faConfig.autoAddCss = false;
 
 export function Subpage({ id, title, subtitle, content, dark, contentRight, postUrl, imageUrl }) {
   return (
@@ -29,27 +31,27 @@ export function SubpageCarousel({ id, title, items, dark }) {
     if (!containerRef)
       return
     if (isLeft)
-      containerRef.current.scrollLeft -= containerRef.current.childNodes[0].offsetWidth / containerRef.current.childNodes[0].childNodes.length
+      containerRef.current.scrollLeft -= (containerRef.current.childNodes[0].offsetWidth / containerRef.current.childNodes[0].childNodes.length) - 0
     else 
-      containerRef.current.scrollLeft += containerRef.current.childNodes[0].offsetWidth / containerRef.current.childNodes[0].childNodes.length
+      containerRef.current.scrollLeft += (containerRef.current.childNodes[0].offsetWidth / containerRef.current.childNodes[0].childNodes.length) - 0
   }
 
   return (
     <div className={`w-full min-h-[100vh] portrait:max-lg:min-h-[50vh] portrait:max-md:min-h-[100vh] px-8 max-md:px-4 py-16 max-lg:py-12 max-md:py-8 ${ dark ? 'bg-stone-600' : 'bg-stone-200' }`}>
-      <div className={`${(dark) ? 'text-gray-200' : 'text-gray-600'} px-16 text-[40px] max-lg:text-3xl max-md:text-2xl font-medium`}>{ title }</div>
+      <div className={`${(dark) ? 'text-gray-200' : 'text-gray-600'} px-16 max-lg:px-8 text-[40px] max-lg:text-3xl max-md:text-2xl font-medium`}>{ title }</div>
       <div className='relative flex flex-row space-x-4'>
         { (items) ? <div onClick={() => slideClicked(true)} className='absolute top-[50%] left-4 my-auto py-4 max-md:py-3 aspect-[1/1] w-16 h-16 max-md:w-12 max-md:h-12 bg-stone-500 bg-opacity-50 text-white text-opacity-100 rounded-full text-center cursor-pointer select-none'><FontAwesomeIcon icon={faChevronLeft} /></div> : '' }
         <div ref={containerRef} className='mt-8 w-full overflow-hidden'>
-          <div className='w-fit flex flex-row space-x-16'>
+          <div className='w-fit flex flex-row space-x-16 pr-16'>
             {
               (items) ? items.map((item, index2) => {
                 return (
                   <div className={`${ dark ? 'bg-stone-100 shadow-gray-700' : 'bg-stone-100 shadow-gray-300 border-2 border-gray-300' } w-[85vw] py-8 px-16 max-lg:px-8 flex flex-row portrait:max-lg:flex-col space-x-16 portrait:max-lg:space-x-0 rounded-2xl shadow-xl`}>
-                    <img src={ item.fields.coverImage?.fields.file.url ?? '#' } className={`w-[45%] portrait:max-lg:w-[60%] portrait:max-lg:mx-auto portrait:max-md:w-full object-contain aspect-[4/3] rounded-lg`} />
+                    <img src={ item.fields.coverImage?.fields.file.url ?? '#' } className={`w-[45%] py-4 portrait:max-lg:w-[60%] portrait:max-lg:mx-auto portrait:max-md:w-full object-contain aspect-[4/3] rounded-lg`} />
                     <div className={`${ dark ? 'text-gray-600' : 'text-gray-600' } flex-1 mt-8 max-lg:mt-4 flex flex-col space-y-8 max-lg:space-y-4`}>
-                      <div className='text-gray-600 font-semibold text-3xl max-lg:text-2xl max-md:text-xl'>{ item.fields.title }</div>
+                      <div className='text-gray-600 font-semibold text-3xl max-lg:text-2xl max-md:text-lg'>{ item.fields.title }</div>
                       <div className='mt-4 max-lg:text-sm'>{ item.fields.summary || item.fields.content }</div>
-                      { (item.sys.contentType.sys.id == 'post') ? <Link href={ '/post/' + item.sys.id } className='px-8 py-3 w-fit bg-green-600 rounded-full text-gray-100 font-medium'>Selengkapnya</Link> : '' }
+                      { (item.sys.contentType.sys.id == 'post') ? <Link href={ '/post/' + item.sys.id } className='ml-auto px-8 py-3 w-fit bg-green-600 rounded-full text-gray-100 font-medium'>Selengkapnya</Link> : '' }
                     </div>
                   </div>
                 ) 
@@ -59,15 +61,6 @@ export function SubpageCarousel({ id, title, items, dark }) {
         </div>
         { (items) ? <div onClick={() => slideClicked(false)} className='absolute top-[50%] right-4 my-auto py-4 max-md:py-3 aspect-[1/1] w-16 h-16 max-md:w-12 max-md:h-12 bg-stone-500 bg-opacity-50 text-white text-opacity-100 rounded-full text-center cursor-pointer select-none'><FontAwesomeIcon icon={faChevronRight} /></div> : '' }
       </div>
-    </div>
-  )
-}
-
-export function LoadingPage() {
-  
-  return (
-    <div>
-      
     </div>
   )
 }

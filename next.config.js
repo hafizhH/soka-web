@@ -7,6 +7,16 @@ const nextConfig = {
     KONTAK_ENTRY_ID: 'wToAPUz8COpES8GkKtBpa',
     POTENSI_ENTRY_ID: '2CNNXHM4eTR9btuYDvdeic',
     REVALIDATE_SECS: 3600
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   }
 }
 

@@ -1,19 +1,9 @@
 'use client'
 
-import { useParams } from "next/navigation"
 import { Subpage, SubpageCarousel } from "../components/PageComponent"
 import { useEffect, useState } from "react"
 
 export default function Profil({ data }) {
-  // const [data, setData] = useState(null)
-  // const params = useParams()
-
-  // useEffect(() => {
-  //   fetch('/api/fetch/' + process.env.PROFIL_ENTRY_ID, { method: 'GET', next: { revalidate: process.env.REVALIDATE_SECS } }).then(async (res) => {
-  //     const pageData = await res.json()
-  //     setData(pageData)
-  //   })
-  // }, [])
 
   return (
     <div className='w-full flex flex-col'>
