@@ -1,5 +1,7 @@
 'use client'
 
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 
 export default function Berita({ posts, highlight }) {
@@ -22,7 +24,7 @@ export default function Berita({ posts, highlight }) {
                       <div className='h-64 max-lg:h-fit mb-2 px-6 py-4 flex flex-col space-y-2'>
                         <div className='font-semibold text-gray-600 leading-snug text-ellipsis'>{ post.fields.title.slice(0, 50) }</div>
                         <div className='text-sm text-gray-500 tracking-wide'>{ new Date(post.sys.createdAt).toLocaleDateString('id-ID') }</div>
-                        <div className='max-lg:hidden flex-1 text-sm text-gray-600 leading-snug text-ellipsis'>{ post.fields.summary.slice(0, 200) }</div>
+                        <div className='max-lg:hidden flex-1 text-sm text-gray-600 leading-snug text-ellipsis'>{ (post.fields.summary.length > 100) ? post.fields.summary.slice(0, 100) + '...' : post.fields.summary }</div>
                         <div className='ml-auto text-green-600 text-sm font-medium'>Selengkapnya</div>
                       </div>
                     </div>
@@ -37,7 +39,7 @@ export default function Berita({ posts, highlight }) {
           <div className='w-full flex flex-row max-lg:flex-col-reverse space-x-16 max-lg:space-x-0 max-lg:space-y-16 max-lg:space-y-reverse max-md:space-y-12 max-md:space-y-reverse'>
             <div className='flex-1 flex flex-col'>
               <div className='text-3xl max-md:text-xl text-gray-600 font-semibold'>Artikel Lainnya</div>
-              <div className='mt-4 mx-auto w-full flex flex-col space-y-6'>
+              <div className='mt-4 mx-auto w-full flex-1 flex flex-col space-y-6'>
                 {
                   (posts) ? posts.slice(4).slice(page*maxPost, (page+1)*maxPost).map((post, index) => {
                     return (
@@ -54,21 +56,26 @@ export default function Berita({ posts, highlight }) {
                   }) : ''
                 }
               </div>
-              <div className='pt-4 w-full'>
+              <div className='pt-4 w-full flex flex-col space-y-2'>
                 { (posts) ? 
-                  <div className='mx-auto w-fit flex flex-row divide-x divide-gray-400/[.5] border border-gray-300 rounded-md shadow-lg text-gray-500 font-medium'>
-                    <div className={`${page == 0 ? 'hidden' : ''} px-4 py-2`}>{'<'}</div>
-                    <div className={`${page <= 2 ? 'hidden' : ''} px-4 py-2`}>1</div>
-                    <div className={`${page <= 3 ? 'hidden' : ''} px-4 py-2`}>...</div>
-                    <div className={`${page <= 2 ? 'hidden' : ''} px-4 py-2`}>{ page-1 }</div>
-                    <div className={`${page <= 1 ? 'hidden' : ''} px-4 py-2`}>{ page }</div>
-                    <div className='px-4 py-2 bg-green-600 text-gray-50'>{ page+1 }</div>
-                    <div className={`${Math.ceil((posts.length-4)/maxPost)-page <= 1 ? 'hidden' : ''} px-4 py-2`}>{ page+2 }</div>
-                    <div className={`${Math.ceil((posts.length-4)/maxPost)-page <= 2 ? 'hidden' : ''} px-4 py-2`}>{ page+3 }</div>
-                    <div className={`${Math.ceil((posts.length-4)/maxPost)-page <= 3 ? 'hidden' : ''} px-4 py-2`}>...</div>
-                    <div className={`${Math.ceil((posts.length-4)/maxPost)-page <= 2 ? 'hidden' : ''} px-4 py-2`}>{ Math.ceil((posts.length-4)/maxPost)  }</div>
-                    <div className={`${Math.ceil((posts.length-4)/maxPost)-(page+1) == 0 ? 'hidden' : ''} px-4 py-2`}>{'>'}</div>
-                  </div> : ''
+                  <>
+                    <div className='w-fit mx-auto'>
+                      <div className='text-sm text-gray-500'>Menampilkan { page+1 } - { ((page+1)*maxPost > posts.length-4) ? posts.length-4 : (page+1)*maxPost } dari { posts.length-4 } artikel</div>
+                    </div>
+                    <div className='mx-auto w-fit flex flex-row divide-x divide-gray-400/[.5] border border-gray-300 rounded-md shadow-lg text-gray-500 font-medium'>
+                      <button onClick={() => setPage(page-1)} className={`${page == 0 ? ' cursor-default text-gray-300' : ''} px-4 py-2 cursor-pointer`} disabled={(page == 0)}><FontAwesomeIcon icon={faChevronLeft} /></button>
+                      <button onClick={() => setPage(0)} className={`${page+1 <= 3 ? 'hidden' : ''} px-4 py-2 cursor-pointer`}>1</button>
+                      <button className={`${page <= 3 ? 'hidden' : ''} px-4 py-2`}>...</button>
+                      <button onClick={() => setPage(page-2)} className={`${page+1 <= 2 ? 'hidden' : ''} px-4 py-2 cursor-pointer`}>{ page-1 }</button>
+                      <button onClick={() => setPage(page-1)} className={`${page+1 <= 1 ? 'hidden' : ''} px-4 py-2 cursor-pointer`}>{ page }</button>
+                      <button onClick={() => setPage(page)} className='px-4 py-2 bg-green-600 text-gray-50'>{ page+1 }</button>
+                      <button onClick={() => setPage(page+1)} className={`${Math.ceil((posts.length-4)/maxPost)-page <= 1 ? 'hidden' : ''} px-4 py-2 cursor-pointer`}>{ page+2 }</button>
+                      <button onClick={() => setPage(page+2)} className={`${Math.ceil((posts.length-4)/maxPost)-page <= 2 ? 'hidden' : ''} px-4 py-2 cursor-pointer`}>{ page+3 }</button>
+                      <button className={`${Math.ceil((posts.length-4)/maxPost)-page <= 3 ? 'hidden' : ''} px-4 py-2`}>...</button>
+                      <button onClick={() => setPage(Math.ceil((posts.length-4)/maxPost)-1)} className={`${Math.ceil((posts.length-4)/maxPost)-page-1 <= 3 ? 'hidden' : ''} px-4 py-2 cursor-pointer`}>{ Math.ceil((posts.length-4)/maxPost)  }</button>
+                      <button onClick={() => setPage(page+1)} className={`${Math.ceil((posts.length-4)/maxPost)-(page+1) == 0 ? ' cursor-default text-gray-300' : ''} px-4 py-2 cursor-pointer`} disabled={(Math.ceil((posts.length-4)/maxPost)-(page+1) == 0)}><FontAwesomeIcon icon={faChevronRight} /></button>
+                    </div>
+                  </> : ''
                 }
               </div>
             </div>
