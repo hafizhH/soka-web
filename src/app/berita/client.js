@@ -10,7 +10,7 @@ export default function Berita({ posts, highlight }) {
 
   return (
     <div className='w-full flex flex-col'>
-      <div className='w-full pt-8 max-lg:pt-4 bg-stone-200'>
+      <div className='w-full max-lg:pt-4 bg-stone-200'>
         <div className='w-full min-h-[100vh] max-lg:min-h-[50vh] max-md:min-h-[65vh] px-24 max-lg:px-16 max-md:px-8 py-16 max-lg:py-4'>
           <div className='text-4xl max-md:text-2xl text-gray-600 font-semibold'>Artikel Terkini</div>
           <div className='mt-8 w-full overflow-x-auto'>

@@ -20,7 +20,7 @@ export function Subpage({ id, title, subtitle, content, dark, contentRight, post
         <div className='w-[45%] max-lg:w-[50%] max-md:w-full flex flex-col space-y-8'>
           { subtitle ? <div className={`${(dark) ? 'text-gray-300' : 'text-gray-600'} text-[3rem] font-medium`}>{ subtitle }</div> : '' }
           {/* <div className={`mt-8 ${(dark) ? 'text-gray-300' : 'text-gray-600'} max-lg:text-sm`}>{ content ?? '' }</div> */}
-          <div className={`mt-8 ${(dark) ? 'text-gray-300' : 'text-gray-600'} max-lg:text-sm leading-relaxed space-y-4`}>
+          <div className={`mt-8 ${(dark) ? 'text-gray-300' : 'text-gray-600'} max-lg:text-sm text-justify leading-relaxed space-y-4`}>
           {
             (content) ? documentToReactComponents(content, renderOptions) : ''
           }
@@ -58,7 +58,7 @@ export function SubpageCarousel({ id, title, items, dark }) {
                     <img src={ item.fields.coverImage?.fields.file.url ?? '#' } alt='cover-image' className={`w-[45%] py-4 portrait:max-lg:w-[60%] portrait:max-lg:mx-auto portrait:max-md:w-full object-contain aspect-[4/3] rounded-lg`} />
                     <div className={`${ dark ? 'text-gray-600' : 'text-gray-600' } flex-1 mt-8 max-lg:mt-4 flex flex-col space-y-8 max-lg:space-y-4`}>
                       <div className='text-gray-600 font-semibold text-3xl max-lg:text-2xl max-md:text-lg'>{ item.fields.title }</div>
-                      <div className='mt-4 max-lg:text-sm'>{ item.fields.summary || item.fields.content }</div>
+                      <div className='mt-4 max-lg:text-sm text-justify'>{ item.fields.summary || item.fields.content }</div>
                       { (item.sys.contentType.sys.id == 'post') ? <Link href={ '/post/' + item.sys.id } className='ml-auto px-8 py-3 w-fit bg-green-600 rounded-full text-gray-100 font-medium'>Selengkapnya</Link> : '' }
                     </div>
                   </div>

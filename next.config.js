@@ -6,7 +6,7 @@ const nextConfig = {
     ORMAS_ENTRY_ID: '4OB9QX0Znbejns6qaumwH6',
     KONTAK_ENTRY_ID: 'wToAPUz8COpES8GkKtBpa',
     POTENSI_ENTRY_ID: '2CNNXHM4eTR9btuYDvdeic',
-    REVALIDATE_SECS: 3600
+    REVALIDATE_SECS: 60
   },
   images: {
     remotePatterns: [
