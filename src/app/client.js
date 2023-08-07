@@ -34,7 +34,7 @@ export default function Root({ data }) {
               return (
                 <a href={'/post/' + post.sys.id} key={index} className='cursor-pointer'>
                   <div key={index} className='w-[20vw] max-lg:w-[40vw] max-md:w-[80vw] flex flex-col bg-gray-100 shadow-xl shadow-gray-300 overflow-clip'>
-                    <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} className='w-full aspect-[4/3] object-cover bg-stone-300' />
+                    <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} alt='cover-image' className='w-full aspect-[4/3] object-cover bg-stone-300' />
                     <div className='h-64 max-lg:h-fit mb-2 px-6 py-4 flex flex-col space-y-2'>
                       <div className='font-semibold text-gray-600 leading-snug text-ellipsis'>{ post.fields.title.slice(0, 50) }</div>
                       <div className='text-sm text-gray-500 tracking-wide'>{ new Date(post.sys.createdAt).toLocaleDateString('id-ID') }</div>

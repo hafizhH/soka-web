@@ -20,7 +20,7 @@ export default function Berita({ posts, highlight }) {
                 return (
                   <a href={'/post/' + post.sys.id} key={index} className='cursor-pointer'>
                     <div key={index} className='w-[20vw] max-lg:w-[40vw] max-md:w-[80vw] flex flex-col bg-gray-100 shadow-xl shadow-gray-300 overflow-clip'>
-                      <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} className='w-full aspect-[4/3] object-cover bg-stone-300' />
+                      <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} alt='cover-image' className='w-full aspect-[4/3] object-cover bg-stone-300' />
                       <div className='h-64 max-lg:h-fit mb-2 px-6 py-4 flex flex-col space-y-2'>
                         <div className='font-semibold text-gray-600 leading-snug text-ellipsis'>{ post.fields.title.slice(0, 50) }</div>
                         <div className='text-sm text-gray-500 tracking-wide'>{ new Date(post.sys.createdAt).toLocaleDateString('id-ID') }</div>
@@ -49,7 +49,7 @@ export default function Berita({ posts, highlight }) {
                             <div className='text-base text-gray-600 max-md:text-sm font-medium'>{ post.fields.title.slice(0, 50) }</div>
                             <div className='mt-3 text-gray-500 text-sm max-md:text-xs'>{ new Date(post.sys.createdAt).toLocaleDateString('id-ID') }</div>
                           </div>
-                          <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} className='w-56 max-lg:w-48 max-md:w-32 aspect-[4/3] object-cover bg-stone-300' />
+                          <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} alt='cover-image' className='w-56 max-lg:w-48 max-md:w-32 aspect-[4/3] object-cover bg-stone-300' />
                         </div>
                       </a>
                     )
@@ -60,7 +60,7 @@ export default function Berita({ posts, highlight }) {
                 { (posts) ? 
                   <>
                     <div className='w-fit mx-auto'>
-                      <div className='text-sm text-gray-500'>Menampilkan { page+1 } - { ((page+1)*maxPost > posts.length-4) ? posts.length-4 : (page+1)*maxPost } dari { posts.length-4 } artikel</div>
+                      <div className='text-sm text-gray-400 tracking-wide'>Menampilkan { page+1 } - { ((page+1)*maxPost > posts.length-4) ? posts.length-4 : (page+1)*maxPost } dari { posts.length-4 } artikel</div>
                     </div>
                     <div className='mx-auto w-fit flex flex-row divide-x divide-gray-400/[.5] border border-gray-300 rounded-md shadow-lg text-gray-500 font-medium'>
                       <button onClick={() => setPage(page-1)} className={`${page == 0 ? ' cursor-default text-gray-300' : ''} px-4 py-2 cursor-pointer`} disabled={(page == 0)}><FontAwesomeIcon icon={faChevronLeft} /></button>
@@ -91,7 +91,7 @@ export default function Berita({ posts, highlight }) {
                             <div className='text-sm max-lg:text-base max-md:text-sm text-gray-600 font-medium'>{ post.fields.title.slice(0, 50) }</div>
                             <div className='mt-3 text-xs max-lg:text-sm max-md:text-xs text-gray-500'>{ new Date(post.sys.createdAt).toLocaleDateString('id-ID') }</div>
                           </div>
-                          <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} className='w-32 max-lg:w-48 max-md:w-32 aspect-[4/3] object-cover bg-stone-300' />
+                          <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} alt='cover-image' className='w-32 max-lg:w-48 max-md:w-32 aspect-[4/3] object-cover bg-stone-300' />
                         </div>
                       </a>
                     )

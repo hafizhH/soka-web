@@ -13,12 +13,12 @@ export default function Post({ post }) {
           <div className='text-4xl max-lg:text-3xl max-md:text-2xl font-semibold text-gray-600 leading-snug'>{ (post) ? post.fields.title : '' }</div>
           <div className='mt-4 text-gray-500 text-sm'>{ (post) ? new Date(post.sys.createdAt).toLocaleDateString('id-ID') : '' }</div>
           <div className='mt-6 max-md:mt-4 flex flex-row space-x-3'>
-            <img src='/blankprofile.png' className='w-12 h-12 rounded-full bg-gray-300 border border-gray-400' />
+            <img src='/blankprofile.png' alt='profile' className='w-12 h-12 rounded-full bg-gray-300 border border-gray-400' />
             <div className='my-auto text-gray-500 max-md:text-sm'>{ (post) ? post.fields.author.fields.name : '' }</div>
           </div>
           <img src={(post) ? post.fields.coverImage.fields.file.url : '#'} alt={((post)) ? post.fields.coverImage.fields.title : 'Cover Image'} className='mt-6 w-full aspect-[5/3] object-cover bg-gray-400' />
         </div>
-        <div className='leading-relaxed space-y-4'>
+        <div className='leading-relaxed space-y-4 text-gray-600'>
           {
             ((post)) ? documentToReactComponents(post.fields.content, renderOptions) : ''
           }
