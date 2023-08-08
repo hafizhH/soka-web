@@ -20,9 +20,9 @@ export default function Berita({ posts, highlight }) {
                 return (
                   <a href={'/post/' + post.sys.id} key={index} className='cursor-pointer'>
                     <div key={index} className='w-[20vw] max-lg:w-[40vw] max-md:w-[80vw] flex flex-col bg-gray-100 shadow-xl shadow-gray-300 overflow-clip'>
-                      <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} alt='cover-image' className='w-full aspect-[4/3] object-cover bg-stone-300' />
+                      <img src={ post.fields.coverImage?.fields?.file?.url ?? '#' } onError={({ currentTarget }) => { currentTarget.onerror = null; currentTarget.src = 'https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734' }} alt='cover-image' className='w-full aspect-[4/3] object-cover bg-stone-300' />
                       <div className='h-64 max-lg:h-fit mb-2 px-6 py-4 flex flex-col space-y-2'>
-                        <div className='font-semibold text-gray-600 leading-snug text-ellipsis'>{ post.fields.title.slice(0, 50) }</div>
+                        <div className='font-semibold text-gray-600 leading-snug'>{ (post.fields.title.length > 50) ? post.fields.title.slice(0, 50) + '...' : post.fields.title }</div>
                         <div className='text-sm text-gray-500 tracking-wide'>{ new Date(post.sys.createdAt).toLocaleDateString('id-ID') }</div>
                         <div className='max-lg:hidden flex-1 text-sm text-gray-600 leading-snug text-ellipsis'>{ (post.fields.summary.length > 100) ? post.fields.summary.slice(0, 100) + '...' : post.fields.summary }</div>
                         <div className='ml-auto text-green-600 text-sm font-medium'>Selengkapnya</div>
@@ -49,7 +49,7 @@ export default function Berita({ posts, highlight }) {
                             <div className='text-base text-gray-600 max-md:text-sm font-medium'>{ post.fields.title.slice(0, 50) }</div>
                             <div className='mt-3 text-gray-500 text-sm max-md:text-xs'>{ new Date(post.sys.createdAt).toLocaleDateString('id-ID') }</div>
                           </div>
-                          <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} alt='cover-image' className='w-56 max-lg:w-48 max-md:w-32 aspect-[4/3] object-cover bg-stone-300' />
+                          <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} onError={({ currentTarget }) => { currentTarget.onerror = null; currentTarget.src = 'https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734' }} alt='cover-image' className='w-56 max-lg:w-48 max-md:w-32 aspect-[4/3] object-cover bg-stone-300' />
                         </div>
                       </a>
                     )
@@ -91,7 +91,7 @@ export default function Berita({ posts, highlight }) {
                             <div className='text-sm max-lg:text-base max-md:text-sm text-gray-600 font-medium'>{ post.fields.title.slice(0, 50) }</div>
                             <div className='mt-3 text-xs max-lg:text-sm max-md:text-xs text-gray-500'>{ new Date(post.sys.createdAt).toLocaleDateString('id-ID') }</div>
                           </div>
-                          <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} alt='cover-image' className='w-32 max-lg:w-48 max-md:w-32 aspect-[4/3] object-cover bg-stone-300' />
+                          <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} onError={({ currentTarget }) => { currentTarget.onerror = null; currentTarget.src = 'https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734' }} alt='cover-image' className='w-32 max-lg:w-48 max-md:w-32 aspect-[4/3] object-cover bg-stone-300' />
                         </div>
                       </a>
                     )

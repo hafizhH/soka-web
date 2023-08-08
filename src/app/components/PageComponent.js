@@ -55,7 +55,7 @@ export function SubpageCarousel({ id, title, items, dark }) {
               (items) ? items.map((item, index2) => {
                 return (
                   <div className={`${ dark ? 'bg-stone-100 shadow-gray-700' : 'bg-stone-100 shadow-gray-300 border-2 border-gray-300' } w-[85vw] py-8 px-16 max-lg:px-8 flex flex-row portrait:max-lg:flex-col space-x-16 portrait:max-lg:space-x-0 rounded-2xl shadow-xl`}>
-                    <img src={ item.fields.coverImage?.fields.file.url ?? '#' } alt='cover-image' className={`w-[45%] py-4 portrait:max-lg:w-[60%] portrait:max-lg:mx-auto portrait:max-md:w-full object-contain aspect-[4/3] rounded-lg`} />
+                    <img src={ item.fields.coverImage?.fields?.file?.url ?? '#' } onError={({ currentTarget }) => { currentTarget.onerror = null; currentTarget.src = 'https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734' }} alt='cover-image' className={`w-[45%] py-4 portrait:max-lg:w-[60%] portrait:max-lg:mx-auto portrait:max-md:w-full object-contain aspect-[4/3] rounded-lg`} />
                     <div className={`${ dark ? 'text-gray-600' : 'text-gray-600' } flex-1 mt-8 max-lg:mt-4 flex flex-col space-y-8 max-lg:space-y-4`}>
                       <div className='text-gray-600 font-semibold text-3xl max-lg:text-2xl max-md:text-lg'>{ item.fields.title }</div>
                       <div className='mt-4 max-lg:text-sm text-justify'>{ item.fields.summary || item.fields.content }</div>
