@@ -4,7 +4,7 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 
-export default function Berita({ posts, highlight }) {
+export default function Artikel({ posts, highlight }) {
   const [page, setPage] = useState(0)
   const [maxPost, setMaxPost] = useState(10)
 

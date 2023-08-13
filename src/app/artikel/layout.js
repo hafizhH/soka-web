@@ -5,11 +5,11 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Artikel | Soka Web',
+  title: 'Artikel | Website Resmi Dusun Soka',
   description: 'Website Resmi Dusun Soka, Seloharjo, Pundong, Bantul, DI Yogyakarta',
 }
 
-export default function BeritaLayout({ children }) {
+export default function ArtikelLayout({ children }) {
   return (
     <>
       {children}

@@ -16,8 +16,8 @@ export default function Root({ data }) {
       <div className='w-full h-[85vh] max-lg:h-[50vh] bg-stone-400' style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.15), rgba(0,0,0,0.05), rgba(0,0,0,0)), url(bg.jpg)', backgroundSize: '175%', backgroundPositionY: '45%' }}>
         <div className='w-[50%] max-lg:w-[60%] max-md:w-full h-full pl-32 pr-16 max-lg:pl-16 max-md:px-6 max-lg:pr-4 max-md:pt-12 flex flex-col justify-center' style={{ backdropFilter: 'blur(2px)' }}>
           <div className='h-fit flex flex-col'>
-            <h1 className='w-full text-[64px] max-lg:text-[48px] max-md:text-[40px] font-semibold text-gray-100 text-wrap leading-tight'>Sugeng Rawuh Wonten Soka</h1>
-            <div className='mt-4 ml-1 w-full text-lg max-lg:text-base max-md:text-sm text-gray-100 leading-snug'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed aliquet urna. Curabitur sed aliquam arcu, vitae posuere mauris. Donec erat mi, aliquam.</div>
+            <h1 className='w-full text-[64px] max-lg:text-[48px] max-md:text-[40px] font-semibold text-gray-100 text-wrap leading-tight'>{ (data) ? data.fields.items[0].fields.title : '' }</h1>
+            <div className='mt-4 ml-1 w-full text-base max-md:text-sm text-gray-100 leading-snug'>{ (data) ? data.fields.items[0].fields.content : '' }</div>
             <div className='mt-8 flex flex-row space-x-6 max-lg:space-x-4 max-md:w-full max-md:justify-around'>
               <Link href='/profil' className='w-fit h-fit px-6 max-lg:px-3 py-4 max-md:py-3 border-2 border-transparent rounded-full bg-green-700 text-gray-100 font-semibold max-md:font-medium whitespace-nowrap'>Tentang Soka&nbsp;&nbsp;<FontAwesomeIcon icon={faArrowRight} /></Link>
               <a href='https://goo.gl/maps/dAFrcQQ1JkSRXt2F8' className='w-fit h-fit px-6 max-lg:px-2 py-4 max-md:py-3 rounded-full bg-[#66666699] border-2 border-gray-100 text-gray-100 font-semibold max-md:font-medium cursor-pointer whitespace-nowrap'>Kunjungi Soka&nbsp;&nbsp;<FontAwesomeIcon icon={faMapLocationDot} /></a>
@@ -26,7 +26,7 @@ export default function Root({ data }) {
         </div>
       </div>
       <div className='w-full min-h-[100vh] max-lg:min-h-[60vh] max-md:min-h-[80vh] px-24 max-lg:px-16 max-md:px-8 py-16 max-lg:py-8 bg-gray-100'>
-        <div className='text-4xl max-md:text-2xl text-gray-600 font-semibold'>Berita Pilihan</div>
+        <div className='text-4xl max-md:text-2xl text-gray-600 font-semibold'>Artikel Pilihan</div>
         <div className='mt-8 w-full overflow-x-auto'>
           <div className='w-fit px-2 pt-2 pb-6 flex flex-row space-x-12'>
           { 

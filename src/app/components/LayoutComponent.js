@@ -40,7 +40,7 @@ export function Navbar() {
           <div className='ml-40 max-lg:ml-28 mr-auto w-fit flex flex-row space-x-6 max-lg:space-x-3 text-sm'>
             <Link href='/' className='py-3 px-2'><div className='text-gray-50 tracking-wide'>Beranda</div></Link>
             <Link href='/profil' className='py-3 px-2'><div className='text-gray-50 tracking-wide'>Profil Dusun</div></Link>
-            <Link href='/berita' className='py-3 px-2'><div className='text-gray-50 tracking-wide'>Berita</div></Link>
+            <Link href='/artikel' className='py-3 px-2'><div className='text-gray-50 tracking-wide'>Artikel</div></Link>
             <Link href='/ormas' className='py-3 px-2'><div className='text-gray-50 tracking-wide'>Organisasi Masyarakat</div></Link>
             <Link href='/potensi' className='py-3 px-2'><div className='text-gray-50 tracking-wide'>Potensi & UMKM</div></Link>
             <Link href='/kontak' className='py-3 px-2'><div className='text-gray-50 tracking-wide'>Kontak</div></Link>
@@ -54,7 +54,7 @@ export function Navbar() {
             </Link>
             <Link href='/' className='py-4 px-2'><div className='text-gray-50 tracking-wide'>Beranda</div></Link>
             <Link href='/profil' className='py-4 px-2'><div className='text-gray-50 tracking-wide'>Profil Dusun</div></Link>
-            <Link href='/berita' className='py-4 px-2'><div className='text-gray-50 tracking-wide'>Berita</div></Link>
+            <Link href='/artikel' className='py-4 px-2'><div className='text-gray-50 tracking-wide'>Artikel</div></Link>
             <Link href='/ormas' className='py-4 px-2'><div className='text-gray-50 tracking-wide'>Organisasi Masyarakat</div></Link>
             <Link href='/potensi' className='py-4 px-2'><div className='text-gray-50 tracking-wide'>Potensi & UMKM</div></Link>
             <Link href='/kontak' className='py-4 px-2'><div className='text-gray-50 tracking-wide'>Kontak</div></Link>
@@ -85,7 +85,7 @@ export function Navbar() {
               <div className='px-6 flex flex-col space-y-6 text-gray-300'>
                 <Link onClick={() => setIsOpen(false)} href='/'><div>Beranda</div></Link>
                 <Link onClick={() => setIsOpen(false)} href='/profil'><div>Profil Dusun</div></Link>
-                <Link onClick={() => setIsOpen(false)} href='/berita'><div>Berita</div></Link>
+                <Link onClick={() => setIsOpen(false)} href='/artikel'><div>Artikel</div></Link>
                 <Link onClick={() => setIsOpen(false)} href='/ormas'><div>Organisasi Masyarakat</div></Link>
                 <Link onClick={() => setIsOpen(false)} href='/potensi'><div>Potensi & UMKM</div></Link>
                 <Link onClick={() => setIsOpen(false)} href='/kontak'><div>Kontak</div></Link>
@@ -146,7 +146,7 @@ export function Footer() {
             <div className='flex flex-col space-y-2 text-sm text-gray-300 font-light'>
               <Link href='/'><div>Beranda</div></Link>
               <Link href='/profil'><div>Profil Dusun</div></Link>
-              <Link href='/berita'><div>Berita</div></Link>
+              <Link href='/artikel'><div>Artikel</div></Link>
               <Link href='/ormas'><div>Organisasi Masyarakat</div></Link>
               <Link href='/potensi'><div>Potensi & UMKM</div></Link>
               <Link href='/kontak'><div>Kontak</div></Link>
@@ -175,7 +175,7 @@ export function Footer() {
             <div className='flex flex-col space-y-2 text-sm text-gray-300 font-light'>
               <Link href='/'><div>Beranda</div></Link>
               <Link href='/profil'><div>Profil Dusun</div></Link>
-              <Link href='/berita'><div>Berita</div></Link>
+              <Link href='/artikel'><div>Artikel</div></Link>
               <Link href='/ormas'><div>Organisasi Masyarakat</div></Link>
               <Link href='/potensi'><div>Potensi & UMKM</div></Link>
               <Link href='/kontak'><div>Kontak</div></Link>
