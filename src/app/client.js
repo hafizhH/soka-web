@@ -19,8 +19,8 @@ export default function Root({ data }) {
             <h1 className='w-full text-[64px] max-lg:text-[48px] max-md:text-[40px] font-semibold text-gray-100 text-wrap leading-tight'>{ (data) ? data.fields.items[0].fields.title : '' }</h1>
             <div className='mt-4 ml-1 w-full text-base max-md:text-sm text-gray-100 leading-snug'>{ (data) ? data.fields.items[0].fields.content : '' }</div>
             <div className='mt-8 flex flex-row space-x-6 max-lg:space-x-4 max-md:w-full max-md:justify-around'>
-              <Link href='/profil' className='w-fit h-fit px-6 max-lg:px-3 py-4 max-md:py-3 border-2 border-transparent rounded-full bg-green-700 text-gray-100 font-semibold max-md:font-medium whitespace-nowrap'>Tentang Soka&nbsp;&nbsp;<FontAwesomeIcon icon={faArrowRight} /></Link>
-              <a href='https://goo.gl/maps/dAFrcQQ1JkSRXt2F8' className='w-fit h-fit px-6 max-lg:px-2 py-4 max-md:py-3 rounded-full bg-[#66666699] border-2 border-gray-100 text-gray-100 font-semibold max-md:font-medium cursor-pointer whitespace-nowrap'>Kunjungi Soka&nbsp;&nbsp;<FontAwesomeIcon icon={faMapLocationDot} /></a>
+              <Link href='/profil' className='w-fit h-fit px-6 max-md:px-4 py-4 max-md:py-3 border-2 border-transparent rounded-full bg-green-700 text-gray-100 font-semibold max-md:font-medium max-md:text-sm whitespace-nowrap'>Tentang Soka&nbsp;&nbsp;<FontAwesomeIcon icon={faArrowRight} /></Link>
+              <a target='_blank' href='https://goo.gl/maps/dAFrcQQ1JkSRXt2F8' rel='noreferrer noopener' className='w-fit h-fit px-6 max-md:px-4 py-4 max-md:py-3 rounded-full border-2 border-stone-300 bg-stone-700 text-gray-100 font-semibold max-md:font-medium max-md:text-sm cursor-pointer whitespace-nowrap'>Kunjungi Soka&nbsp;&nbsp;<FontAwesomeIcon icon={faMapLocationDot} /></a>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ faConfig.autoAddCss = false;
 export function Subpage({ id, title, subtitle, content, dark, contentRight, postUrl, imageUrl }) {
 
   return (
-    <div className={`w-full min-h-[100vh] portrait:max-lg:min-h-[50vh] portrait:max-md:min-h-[100vh] px-24 max-lg:px-16 max-md:px-8 py-16 max-lg:py-12 max-md:py-8 flex flex-col ${ dark ? 'bg-stone-600' : 'bg-stone-200' }`}>
+    <div className={`w-full min-h-[100vh] portrait:max-lg:min-h-[50vh] portrait:max-md:min-h-[100vh] px-24 max-lg:px-16 max-md:px-8 py-16 max-lg:py-12 max-md:py-8 flex flex-col space-y-8 ${ dark ? 'bg-stone-600' : 'bg-stone-200' }`}>
       <div className={`${(dark) ? 'text-gray-200' : 'text-gray-600'} text-[40px] max-lg:text-3xl max-md:text-2xl font-medium`}>{ title ?? '' }</div>
       <div className={`my-auto flex ${ contentRight ? 'flex-row' : 'flex-row-reverse' } max-md:flex-col justify-between`}>
         {
