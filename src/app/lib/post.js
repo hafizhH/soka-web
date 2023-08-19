@@ -6,7 +6,8 @@ export const getAllPostIds = async () => {
   const res = await client.getEntries({ content_type: 'post' })
   const postIds = res.items.map(item => {
     return {
-      params: { postId: item.sys.id }
+      postId: item.sys.id,
+      lastModified: item.sys.lastModified
     }
   })
   return postIds
