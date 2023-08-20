@@ -7,7 +7,7 @@ export const getAllPostIds = async () => {
   const postIds = res.items.map(item => {
     return {
       postId: item.sys.id,
-      lastModified: item.sys.lastModified
+      lastModified: item.sys.updatedAt
     }
   })
   return postIds
