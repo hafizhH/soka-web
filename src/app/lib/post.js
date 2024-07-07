@@ -21,9 +21,9 @@ export const getAllPosts = async () => {
   })
 }
 
-export const getPostByIdAndRecommendations = async (id, recommendationCount) => {
+export const getPostBySlugAndRecommendations = async (slug, recommendationCount) => {
   const posts = await client.getEntries({ content_type: 'post' })
-  const index = posts.items.findIndex(item => item.sys.id == id)
+  const index = posts.items.findIndex(item => item.fields.slug == slug)
   const post = posts.items[index]
   const sorted = posts.items.sort((a, b) => b.sys.createdAt - a.sys.createdAt)
   const firstSlice = sorted.slice(index + 1, index + recommendationCount + 1)

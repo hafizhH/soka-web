@@ -10,7 +10,7 @@ export default function Artikel({ posts, highlight }) {
 
   return (
     <div className='w-full flex flex-col'>
-      <div className='w-full max-lg:pt-4 bg-stone-200'>
+      <div className='w-full max-lg:pt-4 bg-stone-100'>
         <div className='w-full min-h-[100vh] max-lg:min-h-[50vh] max-md:min-h-[65vh] px-24 max-lg:px-16 max-md:px-8 py-16 max-lg:py-4'>
           <div className='text-4xl max-md:text-2xl text-gray-600 font-semibold'>Artikel Terkini</div>
           <div className='mt-8 w-full overflow-x-auto'>
@@ -18,8 +18,8 @@ export default function Artikel({ posts, highlight }) {
             { 
               (posts) ? posts.slice(0, 4).map((post, index) => {
                 return (
-                  <a href={'/post/' + post.sys.id} key={index} className='cursor-pointer'>
-                    <div key={index} className='w-[20vw] max-lg:w-[40vw] max-md:w-[80vw] flex flex-col bg-gray-100 shadow-xl shadow-gray-300 overflow-clip'>
+                  <a href={'/post/' + post.fields.slug} key={index} className='cursor-pointer'>
+                    <div key={index} className='w-[20vw] max-lg:w-[40vw] max-md:w-[80vw] flex flex-col bg-stone-100 shadow-xl shadow-gray-300 overflow-clip'>
                       <img src={ post.fields.coverImage?.fields?.file?.url ?? '#' } onError={({ currentTarget }) => { currentTarget.onerror = null; currentTarget.src = 'https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734' }} alt='cover-image' className='w-full aspect-[4/3] object-cover bg-stone-300' />
                       <div className='h-64 max-lg:h-fit mb-2 px-6 py-4 flex flex-col space-y-2'>
                         <div className='font-semibold text-gray-600 leading-snug'>{ (post.fields.title.length > 50) ? post.fields.title.slice(0, 50) + '...' : post.fields.title }</div>
@@ -35,7 +35,7 @@ export default function Artikel({ posts, highlight }) {
             </div>
           </div>
         </div>
-        <div className='mt-4 px-24 max-lg:px-16 max-md:px-8 pt-12 max-md:pt-8 pb-16 -z-50 w-full flex flex-col space-y-8 bg-gray-100 shadow-xl shadow-gray-400'>
+        <div className='mt-4 px-24 max-lg:px-16 max-md:px-8 pt-12 max-md:pt-8 pb-16 -z-50 w-full flex flex-col space-y-8 bg-stone-100 shadow-xl shadow-gray-400'>
           <div className='w-full flex flex-row max-lg:flex-col-reverse space-x-16 max-lg:space-x-0 max-lg:space-y-16 max-lg:space-y-reverse max-md:space-y-12 max-md:space-y-reverse'>
             <div className='flex-1 flex flex-col'>
               <div className='text-3xl max-md:text-xl text-gray-600 font-semibold'>Artikel Lainnya</div>
@@ -43,7 +43,7 @@ export default function Artikel({ posts, highlight }) {
                 {
                   (posts) ? posts.slice(4).slice(page*maxPost, (page+1)*maxPost).map((post, index) => {
                     return (
-                      <a href={'/post/' + post.sys.id} key={index} className='cursor-pointer'> 
+                      <a href={'/post/' + post.fields.slug} key={index} className='cursor-pointer'> 
                         <div className='py-2 flex flex-row space-x-4'>
                           <div className='my-auto flex-1 flex flex-col'>
                             <div className='text-base text-gray-600 max-md:text-sm font-medium'>{ post.fields.title.slice(0, 50) }</div>
@@ -85,7 +85,7 @@ export default function Artikel({ posts, highlight }) {
                 { 
                   (highlight) ? highlight.map((post, index) => {
                     return (
-                      <a href={'/post/' + post.sys.id} key={index} className='cursor-pointer'>
+                      <a href={'/post/' + post.fields.slug} key={index} className='cursor-pointer'>
                         <div key={index} className='py-2 flex flex-row space-x-4'>
                           <div className='my-auto flex-1 flex flex-col'>
                             <div className='text-sm max-lg:text-base max-md:text-sm text-gray-600 font-medium'>{ post.fields.title.slice(0, 50) }</div>

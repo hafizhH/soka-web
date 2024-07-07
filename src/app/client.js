@@ -25,15 +25,15 @@ export default function Root({ data }) {
           </div>
         </div>
       </div>
-      <div className='w-full min-h-[100vh] max-lg:min-h-[60vh] max-md:min-h-[80vh] px-24 max-lg:px-16 max-md:px-8 py-16 max-lg:py-8 bg-gray-100'>
+      <div className='w-full min-h-[100vh] max-lg:min-h-[60vh] max-md:min-h-[80vh] px-24 max-lg:px-16 max-md:px-8 py-16 max-lg:py-8 bg-stone-100'>
         <div className='text-4xl max-md:text-2xl text-gray-600 font-semibold'>Artikel Pilihan</div>
         <div className='mt-8 w-full overflow-x-auto'>
           <div className='w-fit px-2 pt-2 pb-6 flex flex-row space-x-12'>
           { 
             (data) ? data.fields.items[1].fields.items.map((post, index) => {
               return (
-                <a href={'/post/' + post.sys.id} key={index} className='cursor-pointer'>
-                  <div key={index} className='w-[20vw] max-lg:w-[40vw] max-md:w-[80vw] flex flex-col bg-gray-100 shadow-xl shadow-gray-300 overflow-clip'>
+                <a href={'/post/' + post.fields.slug} key={index} className='cursor-pointer'>
+                  <div key={index} className='w-[20vw] max-lg:w-[40vw] max-md:w-[80vw] flex flex-col bg-stone-100 shadow-xl shadow-gray-300 overflow-clip'>
                     <img src={ post.fields.coverImage?.fields?.file?.url ?? '#'} onError={({ currentTarget }) => { currentTarget.onerror = null; currentTarget.src = 'https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734' }} alt='cover-image' className='w-full aspect-[4/3] object-cover bg-stone-300' />
                     <div className='h-64 max-lg:h-fit mb-2 px-6 py-4 flex flex-col space-y-2'>
                       <div className='font-semibold text-gray-600 leading-snug text-ellipsis'>{ post.fields.title.slice(0, 50) }</div>

@@ -101,7 +101,7 @@ export function Navbar() {
 export function Header() {
   return (
     <div className='w-full h-[12vh] max-lg:h-[8vh] max-md:h-[10vh] flex flex-col'>
-      <Link href='/' className='w-full flex-1 px-8 py-auto flex flex-row bg-stone-200'>
+      <Link href='/' className='w-full flex-1 px-8 py-auto flex flex-row bg-stone-100'>
         <div className='ml-32 max-lg:ml-20 max-md:ml-0 my-auto'>
           <img src='/logo.png' className='h-16 w-16 max-md:h-12 max-md:w-12' alt='logo' />
         </div>
@@ -118,7 +118,7 @@ export function Header() {
 export function Footer() {
   return (
     <>
-      <div className='block max-md:hidden w-full px-16 py-8 relative z-50 flex flex-col space-y-8 bg-stone-700'>
+      <div className='block max-md:hidden w-full px-16 py-8 relative z-50 flex flex-col space-y-8 bg-stone-800'>
         <div className='flex-1 mt-4 flex flex-row justify-around'>
           <div className='flex flex-col space-y-8'>
             <div className='flex flex-col space-y-4'>
@@ -144,12 +144,12 @@ export function Footer() {
           <div className='flex flex-col space-y-4'>
             <div className='text-sm text-gray-100 tracking-wider'>NAVIGASI</div>
             <div className='flex flex-col space-y-2 text-sm text-gray-300 font-light'>
-              <Link href='/'><div>Beranda</div></Link>
-              <Link href='/profil'><div>Profil Dusun</div></Link>
-              <Link href='/artikel'><div>Artikel</div></Link>
-              <Link href='/ormas'><div>Organisasi Masyarakat</div></Link>
-              <Link href='/potensi'><div>Potensi & UMKM</div></Link>
-              <Link href='/kontak'><div>Kontak</div></Link>
+              <Link className="hover:underline" href='/'><div>Beranda</div></Link>
+              <Link className="hover:underline" href='/profil'><div>Profil Dusun</div></Link>
+              <Link className="hover:underline" href='/artikel'><div>Artikel</div></Link>
+              <Link className="hover:underline" href='/ormas'><div>Organisasi Masyarakat</div></Link>
+              <Link className="hover:underline" href='/potensi'><div>Potensi & UMKM</div></Link>
+              <Link className="hover:underline" href='/kontak'><div>Kontak</div></Link>
             </div>
           </div>
         </div>
@@ -173,12 +173,12 @@ export function Footer() {
           <div className='flex flex-col space-y-4'>
             <div className='text-gray-100 tracking-wider'>NAVIGASI</div>
             <div className='flex flex-col space-y-2 text-sm text-gray-300 font-light'>
-              <Link href='/'><div>Beranda</div></Link>
-              <Link href='/profil'><div>Profil Dusun</div></Link>
-              <Link href='/artikel'><div>Artikel</div></Link>
-              <Link href='/ormas'><div>Organisasi Masyarakat</div></Link>
-              <Link href='/potensi'><div>Potensi & UMKM</div></Link>
-              <Link href='/kontak'><div>Kontak</div></Link>
+              <Link className="hover:underline" href='/'><div>Beranda</div></Link>
+              <Link className="hover:underline" href='/profil'><div>Profil Dusun</div></Link>
+              <Link className="hover:underline" href='/artikel'><div>Artikel</div></Link>
+              <Link className="hover:underline" href='/ormas'><div>Organisasi Masyarakat</div></Link>
+              <Link className="hover:underline" href='/potensi'><div>Potensi & UMKM</div></Link>
+              <Link className="hover:underline" href='/kontak'><div>Kontak</div></Link>
             </div>
           </div>
           <div className='mt-8 mx-auto flex flex-col space-y-2'>
@@ -190,7 +190,7 @@ export function Footer() {
             <div className='my-auto mx-auto text-xs font-light text-gray-300'>KKN-PPM UGM Pundong 2023</div>
           </div>
           <div className='flex flex-col'>
-            <div className='mx-auto text-gray-300 text-sm font-light'>KKN-PPM UGM Pundong &copy; 2023</div>
+            <div className='mx-auto text-gray-300 text-sm font-light'>&copy; KKN-PPM UGM Pundong 2023</div>
           </div>
         </div>
       </div>
